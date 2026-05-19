@@ -107,8 +107,8 @@ document.addEventListener('DOMContentLoaded', () => {
       
     //load tasks on page load
     loadTasksFromLocalStorage();
-    
-    //confetti settings
+});
+  //confetti settings
     const confettiSettings = () =>{
     const count = 100;
     const defaults = { origin: { y: .1 } };
@@ -125,5 +125,4 @@ document.addEventListener('DOMContentLoaded', () => {
       },8);
    };
 
-});
 
