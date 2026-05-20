@@ -106,7 +106,8 @@ body{
 
 .input-area input{
     flex: 1;
-    width: 80%;
+    min-width: 0;        /* add this - prevents overflow */
+    width: auto; 
     padding: 10px 17px;
     border-radius: 22px;
     border: none;
@@ -271,8 +272,9 @@ body{
         font-size: 0.9rem;
     }
 
-    .input-area {
-        flex-direction: column;  /* stack input and button vertically */
+     
+     .input-area {
+        flex-direction: row;   /* keep row on mobile, don't stack */
         gap: 8px;
     }
 
@@ -281,32 +283,38 @@ body{
         font-size: 1rem;
     }
 
+    /* ✅ Keep button circular on mobile */
     .input-area button {
-        width: 100%;
+        width: 42px;          /* fixed size */
+        height: 42px;         /* fixed size */
+        min-width: 42px;      /* prevent shrinking */
+        border-radius: 50%;   /* keep circle */
+        margin-left: 0;
+        padding: 0;
     }
 
     #task-list li {
         font-size: 0.9rem;
-        flex-wrap: wrap;        /* prevents overflow */
+        flex-wrap: wrap;
     }
 
     .task-buttons {
         gap: 6px;
     }
 
-    .empty-image img {
+    .empty-image {
         width: 100%;
         max-width: 200px;
     }
 
     .todos-container {
-        width: 100% !important;  /* override JS inline style on mobile */
+        width: 100% !important;
     }
 }
 
 /* Very small screens (under 380px) */
 @media (max-width: 380px) {
-    .todo-app {
+     .todo-app {
         padding: 0.8rem;
     }
 
@@ -315,6 +323,14 @@ body{
     }
 
     .task-buttons button {
-        padding: 4px 6px;
+        width: 26px;
+        height: 26px;
+        font-size: 0.7rem;
+    }
+
+    .input-area button {
+        width: 38px;
+        height: 38px;
+        min-width: 38px;
     }
 }
